@@ -80,19 +80,18 @@ let imgArray = [];
     
 }
 
-console.log(imgArray);
+// console.log(imgArray);
 
 // prendiamo il wrapper contentente le immagini
 console.log(carouselWrapper);
 
 // salviamo in una variabile i figli, creando tipo un array
 const imgList = imgArray;
-// console.log(imgList);
+console.log(imgList);
 
 // funzionando come un array, diciamo ad una variabile di avere un attributo numerico che sappiamo 
 // si collegerà il numero index dell'array
 let activeImg = 0;
-console.log(imgList[activeImg]);
 
 imgList[activeImg].classList.add('active');
 
@@ -131,9 +130,9 @@ prevBtn.addEventListener('click', function(){
     
     activeImg--;
     
-    if (activeImg < imgList.length[0]){
-        activeImg = imgList[5];
-    }
+    // if ((imgList.lengt) === activeImg){
+    //     activeImg = imgList.length[5];
+    // }
     
     imgList[activeImg].classList.add('active');
     
