@@ -33,7 +33,7 @@ nextBtn.addEventListener('click', function(){
     // allora riparti dal numero 0, dall'elemento 0, perchè altrimenti, premendo si andrà avanti
     // superando così' il numero di elementi presenti e semplicemente non vedremo nulla!!
     if (activeImg === imgList.length){
-        activeImg = 0;
+        activeImg = 1;
     }
 
     // aggiungiamo la classe attivo per vedere la successiva
@@ -42,8 +42,22 @@ nextBtn.addEventListener('click', function(){
 
 })
 
-
-for (let index = 0; index < imgList.length; index++) {
-    // console.log(imgList[index]);
+prevBtn.addEventListener('click', function(){
+    imgList[activeImg].classList.remove('active');
     
-}
+    activeImg--;
+    
+    if (activeImg < imgList.length-1){
+        activeImg = imgList.length-1;
+    }
+    
+    imgList[activeImg].classList.add('active');
+    
+    
+})
+
+
+// for (let index = 0; index < imgList.length; index++) {
+//     // console.log(imgList[index]);
+    
+// }
