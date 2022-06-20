@@ -28,6 +28,14 @@ nextBtn.addEventListener('click', function(){
     // semplicemente con ++ per dirgli di aumentare di uno e passare al prossimo
     activeImg++;
 
+    // cosa stiamo facendo qua? Stiam dicendo che, se il numero di activeImg, 
+    // arriva alla lunghezza del numero di elementi presenti nella lista 'array', 
+    // allora riparti dal numero 0, dall'elemento 0, perchè altrimenti, premendo si andrà avanti
+    // superando così' il numero di elementi presenti e semplicemente non vedremo nulla!!
+    if (activeImg === imgList.length){
+        activeImg = 0;
+    }
+
     // aggiungiamo la classe attivo per vedere la successiva
     imgList[activeImg].classList.add('active');
     
