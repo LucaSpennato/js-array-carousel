@@ -80,20 +80,12 @@ let imgArray = [];
     
 }
 
-// console.log(imgArray);
 
-// prendiamo il wrapper contentente le immagini
-console.log(carouselWrapper);
-
-// salviamo in una variabile i figli, creando tipo un array
-const imgList = imgArray;
-console.log(imgList);
-
-// funzionando come un array, diciamo ad una variabile di avere un attributo numerico che sappiamo 
-// si collegerà il numero index dell'array
+// essendo un array, diciamo ad una variabile di avere un attributo numerico che
+// collegheremo al numero index dell'array
 let activeImg = 0;
 
-imgList[activeImg].classList.add('active');
+imgArray[activeImg].classList.add('active');
 
 const prevBtn = document.getElementById('prev_btn');
 const nextBtn = document.getElementById('next_btn');
@@ -104,7 +96,7 @@ nextBtn.addEventListener('click', function(){
     //ora al click, aggiungiamo e togliiamo le classi per visualizzare in base al 
     // numero al quale abbiamo assegnato ad activeImg
     // praticamente stiamo prendendo l'elemento0 nella ''lista dell'array''
-    imgList[activeImg].classList.remove('active');
+    imgArray[activeImg].classList.remove('active');
     
     // aggiungiamo un +1 all'elemento che ci permette di selezionare l'index nella lista dell'array
     // semplicemente con ++ per dirgli di aumentare di uno e passare al prossimo
@@ -114,27 +106,30 @@ nextBtn.addEventListener('click', function(){
     // arriva alla lunghezza del numero di elementi presenti nella lista 'array', 
     // allora riparti dal numero 0, dall'elemento 0, perchè altrimenti, premendo si andrà avanti
     // superando così' il numero di elementi presenti e semplicemente non vedremo nulla!!
-    if (activeImg === imgList.length){
-        activeImg = 1;
+    if (activeImg === imgArray.length){
+        activeImg = 0;
     }
 
     // aggiungiamo la classe attivo per vedere la successiva
-    imgList[activeImg].classList.add('active');
+    imgArray[activeImg].classList.add('active');
     
 
 })
 
 
 prevBtn.addEventListener('click', function(){
-    imgList[activeImg].classList.remove('active');
-    
+
+    imgArray[activeImg].classList.remove('active');
+
     activeImg--;
-    
-    // if ((imgList.lengt) === activeImg){
-    //     activeImg = imgList.length[5];
-    // }
-    
-    imgList[activeImg].classList.add('active');
-    
+
+    if (activeImg === -1){
+        activeImg = 5;
+    }
+
+    imgArray[activeImg].classList.add('active');
+
     
 })
+
+console.log(imgArray);
